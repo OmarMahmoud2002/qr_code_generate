@@ -5,24 +5,26 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  --clr-primary: #6C63FF;
-  --clr-primary-light: #8b85ff;
-  --clr-primary-dark: #5a52e0;
-  --clr-bg: #f0f2f5;
+  --clr-primary: #4d9b97;
+  --clr-primary-light: #5aada9;
+  --clr-primary-dark: #3d7c79;
+  --clr-secondary: #4596cf;
+  --clr-accent: #e7c539;
+  --clr-bg: #f0f5f4;
   --clr-card: #ffffff;
   --clr-text: #1e1e2f;
   --clr-text-muted: #6b7280;
-  --clr-border: #e2e5ea;
-  --clr-success: #22c55e;
+  --clr-border: #d4e5e3;
+  --clr-success: #4d9b97;
   --clr-error: #ef4444;
-  --clr-warning: #f59e0b;
+  --clr-warning: #e7c539;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.10);
-  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --shadow-md: 0 4px 20px rgba(77, 155, 151, 0.15);
+  --shadow-lg: 0 10px 40px rgba(77, 155, 151, 0.20);
+  --font: 'Tajawal', 'Inter', system-ui, -apple-system, sans-serif;
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -44,6 +46,11 @@ html {
 body {
   font-family: var(--font);
   background: var(--clr-bg);
+  background-image: url('patern1.png'), url('patern2.png');
+  background-position: top left, bottom right;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 400px, 400px;
+  background-attachment: fixed;
   color: var(--clr-text);
   line-height: 1.6;
   min-height: 100vh;
@@ -71,21 +78,22 @@ body {
   padding: 0.5rem 0;
 }
 
-.hero__icon {
+.hero__logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-light));
-  box-shadow: 0 6px 24px rgba(108, 99, 255, 0.3);
   margin-bottom: 1rem;
   transition: transform var(--transition);
 }
 
-.hero__icon:hover {
-  transform: scale(1.05) rotate(-2deg);
+.hero__logo img {
+  max-width: 180px;
+  height: auto;
+  filter: drop-shadow(0 6px 24px rgba(77, 155, 151, 0.3));
+}
+
+.hero__logo:hover {
+  transform: scale(1.05);
 }
 
 .hero__title {
@@ -107,16 +115,30 @@ body {
 .card {
   background: var(--clr-card);
   border-radius: var(--radius-lg);
+  border: 2px solid rgba(77, 155, 151, 0.1);
   box-shadow: var(--shadow-lg);
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  transition: box-shadow var(--transition);
+  transition: box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-secondary), var(--clr-accent));
 }
 
 .card:hover {
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 48px rgba(77, 155, 151, 0.25);
+  border-color: rgba(77, 155, 151, 0.3);
 }
 
 /* ---------- Input Group ---------- */
