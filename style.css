@@ -46,7 +46,7 @@ html {
 body {
   font-family: var(--font);
   background: var(--clr-bg);
-  background-image: url('patern1.png'), url('patern2.png');
+  background-image: url(''), url('patern2.png');
   background-position: top left, bottom right;
   background-repeat: no-repeat, no-repeat;
   background-size: 400px, 400px;
